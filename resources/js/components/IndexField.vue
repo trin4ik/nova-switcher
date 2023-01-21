@@ -1,5 +1,5 @@
 <template>
-  <label class="container" @click.stop>
+  <label class="container nova-switcher" @click.stop>
     <input
         class="input"
         type="checkbox"
@@ -65,6 +65,18 @@ export default {
   },
 }
 </script>
+<style>
+.dark .nova-switcher .switch {
+  --light-gray: rgb(var(--colors-gray-600));
+  --gray: rgb(var(--colors-gray-700));
+  --dark-gray: rgb(var(--colors-gray-500));
+  --teal: rgb(var(--colors-green-500));
+  --dark-teal: rgb(var(--colors-green-500));
+}
+.dark .nova-switcher .label {
+  color:rgba(var(--colors-gray-400),var(--tw-text-opacity));
+}
+</style>
 <style scoped>
 .container {
   cursor: pointer;
@@ -74,7 +86,7 @@ export default {
 
 .label {
   margin-left: 12px;
-  color: #1a202c;
+  color: rgba(var(--colors-gray-500),var(--tw-text-opacity));
   /* Show an ellipsis if the text takes more than one line */
 }
 
@@ -95,11 +107,11 @@ export default {
   --switch-container-width: 50px;
   --switch-size: calc(var(--switch-container-width) / 2);
 
-  --light-gray: #e2e8f0;
-  --gray: #cbd5e0;
-  --dark-gray: #a0aec0;
-  --teal: #4fd1c5;
-  --dark-teal: #319795;
+  --light-gray: rgb(var(--colors-gray-200));
+  --gray: rgb(var(--colors-gray-300));
+  --dark-gray: rgb(var(--colors-gray-400));
+  --teal: rgb(var(--colors-green-500));
+  --dark-teal: rgb(var(--colors-green-500));
 
   /* Vertically center the inner circle */
   display: flex;
