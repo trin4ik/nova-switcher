@@ -84,6 +84,16 @@ export default {
   align-items: center;
 }
 
+.container.text-left {
+  justify-content: flex-start;
+}
+.container.text-center {
+  justify-content: center;
+}
+.container.text-right {
+  justify-content: flex-end;
+}
+
 .label {
   margin-left: 12px;
   color: rgba(var(--colors-gray-500),var(--tw-text-opacity));

@@ -13,8 +13,11 @@ class NovaSwitcher extends Boolean
      */
     public $component = 'nova-switcher';
 
+    public $textAlign = 'center';
+
     public function trueLabel (string $label): self
     {
+        $this->textAlign = 'left';
         return $this->withMeta([
             'true_label' => $label,
         ]);
@@ -22,6 +25,7 @@ class NovaSwitcher extends Boolean
 
     public function falseLabel (string $label): self
     {
+        $this->textAlign = 'left';
         return $this->withMeta([
             'false_label' => $label,
         ]);
