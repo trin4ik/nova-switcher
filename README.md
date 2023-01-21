@@ -29,5 +29,6 @@ NovaSwitcher::make('Active')
     ->reverse();
 ```
 
-## Thanks
-to [David Piesse](https://github.com/davidpiesse), based on https://github.com/davidpiesse/nova-toggle
+## Thanks to...
+- [David Piesse](https://github.com/davidpiesse), based on https://github.com/davidpiesse/nova-toggle
+- [Thomas Lombart](https://dev.to/thomaslombart/how-to-build-a-reusable-and-accessible-toggle-switch-with-vue-3hh7) for the switcher css
