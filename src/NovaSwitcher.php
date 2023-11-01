@@ -15,6 +15,8 @@ class NovaSwitcher extends Boolean
 
     public $textAlign = 'center';
 
+    public $defaultConfirm = 'Are you sure?';
+
     public function trueLabel (string $label): self
     {
         $this->textAlign = 'left';
@@ -44,5 +46,26 @@ class NovaSwitcher extends Boolean
         return $this->withMeta([
             'reverse' => true,
         ]);
+    }
+
+    public function confirmToTrue (string $confirm): self
+    {
+        return $this->withMeta([
+            'confirm_to_true' => $confirm,
+        ]);
+    }
+
+    public function confirmToFalse (string $confirm): self
+    {
+        return $this->withMeta([
+            'confirm_to_false' => $confirm,
+        ]);
+    }
+
+    public function confirm (null|string $toTrue = null, null|string $toFalse = null): self
+    {
+        $this->confirmToTrue($toTrue ?? $this->defaultConfirm);
+        $this->confirmToFalse($toFalse ?? $toTrue ?? $this->defaultConfirm);
+        return $this;
     }
 }

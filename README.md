@@ -12,17 +12,39 @@ composer require trin4ik/nova-switcher
 ## Usage
 ```php
 use Trin4ik\NovaSwitcher\NovaSwitcher;
+...
+NovaSwitcher::make('Active');
 ```
+### Labels
 ```php
+use Trin4ik\NovaSwitcher\NovaSwitcher;
+...
 NovaSwitcher::make('Active')
     ->trueLabel('On')
     ->falseLabel('Off');
-```
-or
-```php
+...
 NovaSwitcher::make('Active')
     ->withLabels(true: 'On', false: 'Off');
 ```
+### Confirmation
+```php
+use Trin4ik\NovaSwitcher\NovaSwitcher;
+...
+NovaSwitcher::make('Active')
+    ->confirmToTrue('enable?')
+    ->confirmToFalse('disable?');
+...
+NovaSwitcher::make('Active')
+    ->confirm(toTrue: 'enable?', toFalse: 'disable?');
+```
+of couse, you can only use confirmation dialogue to enable, or disable:
+```php
+use Trin4ik\NovaSwitcher\NovaSwitcher;
+...
+NovaSwitcher::make('Active')
+    ->confirmToFalse('Turn it off?');
+```
+### Reverse
 Also, you can use reverse value (if switcher checked, value is false and vice versa)
 ```php
 NovaSwitcher::make('Active')

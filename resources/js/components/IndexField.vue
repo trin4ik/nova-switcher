@@ -3,7 +3,7 @@
     <input
         class="input"
         type="checkbox"
-        :checked="value"
+        v-model="value"
         @change="toggle"
     />
     <span class="switch"></span>
@@ -28,17 +28,19 @@ export default {
 
   methods: {
     toggle() {
-      this.value = !this.value
-      this.$emit('change', this.reverse ? !this.value : this.value)
+      if (this.confirm[!this.value] && !confirm(this.confirm[!this.value])) {
+        this.$nextTick(() => {
+          this.value = !this.value
+        })
+        return;
+      }
       if (this.withoutRequest) return
       Nova.request().post('/nova-vendor/nova-switcher/toggle/' + this.resourceName, {
         value: this.reverse ? !this.value : this.value,
         fieldName: this.field.attribute,
         resourceId: this.id,
       }).then((res) => {
-        if (res.data.success) {
-          this.field.value = this.reverse ? !this.value : this.value;
-        } else {
+        if (!res.data.success) {
           setTimeout(() => {
             this.value = !this.value
           }, 250)
@@ -62,7 +64,14 @@ export default {
     reverse() {
       return this.field.reverse ?? false
     },
-  },
+
+    confirm() {
+      return {
+        'true': this.field.confirm_to_false ?? false,
+        'false': this.field.confirm_to_true ?? false,
+      }
+    }
+  }
 }
 </script>
 <style>
