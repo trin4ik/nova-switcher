@@ -1,3 +1,5 @@
+!!! Guys, I archived this project because I'm not using it anymore. If you want it, I can transfer my rights to you !!!
+
 # Laravel Nova Switcher Field
 Replace default Boolean with switcher. \
 Work on Index/Detail view with xhr, on Form like checkbox.
